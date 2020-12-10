@@ -30,6 +30,16 @@ namespace Customer
         }
     }
 
+    public class FullTimeEmployee: Employee
+    {
+
+    }
+
+    public class PartTimeEmployee: Employee
+    {
+
+    }
+
     
 
     
