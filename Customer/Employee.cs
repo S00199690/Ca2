@@ -12,26 +12,18 @@ namespace Customer
 
         public string SurName { get; set; }
 
-        abstract decimal CalculateMonthlyPay()
-        {
+        public abstract decimal CalculateMonthlyPay();
             
-        }
-
-        public Employee()
-        {
-            
-        }
-
-        public override string ToString()
-        {
-            return string.Format("");
-
-        }
     }
 
     abstract class FullTimeEmployee: Employee
     {
         public decimal Salary { get; set; }
+
+        public override decimal CalculateMonthlyPay()
+        {
+            return Salary / 12;
+        }
     }
 
     abstract class PartTimeEmployee: Employee
@@ -39,6 +31,11 @@ namespace Customer
         public decimal HourlyRate { get; set; }
 
         public double HoursWorked { get; set; }
+
+        public override decimal CalculateMonthlyPay()
+        {
+            return HourlyRate * (decimal)HoursWorked;
+        }
     }
 
     
