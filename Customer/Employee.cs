@@ -17,10 +17,9 @@ namespace Customer
             
         }
 
-        public Employee(string firstname, string surname)
+        public Employee()
         {
-            FirstName = firstname;
-            SurName = surname;
+            
         }
 
         public override string ToString()
@@ -30,14 +29,16 @@ namespace Customer
         }
     }
 
-    public class FullTimeEmployee: Employee
+    abstract class FullTimeEmployee: Employee
     {
-
+        public decimal Salary { get; set; }
     }
 
-    public class PartTimeEmployee: Employee
+    abstract class PartTimeEmployee: Employee
     {
+        public decimal HourlyRate { get; set; }
 
+        public double HoursWorked { get; set; }
     }
 
     

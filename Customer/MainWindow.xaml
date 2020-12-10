@@ -12,26 +12,26 @@
             <ColumnDefinition Width="111*"/>
             <ColumnDefinition Width="252*"/>
         </Grid.ColumnDefinitions>
-        <CheckBox Content="Full Time" HorizontalAlignment="Left" Margin="8,53,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <CheckBox Content="Part Time" HorizontalAlignment="Left" Margin="138,53,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="212.4,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="212.4,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="212.4,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="212.4,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="212.4,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
-        <Button Content="Clear" HorizontalAlignment="Left" Margin="392.4,103,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="392.4,148,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
-        <Button Content="Update" HorizontalAlignment="Left" Margin="392.4,212,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="392.4,256,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
-        <Label Content="First Name" HorizontalAlignment="Left" Margin="117.4,91,0,0" VerticalAlignment="Top" Grid.Column="2"/>
-        <Label Content="Surname" HorizontalAlignment="Left" Margin="117.4,137,0,0" VerticalAlignment="Top" Grid.Column="2"/>
-        <Label Content="Salary" HorizontalAlignment="Left" Margin="117.4,201,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.682,2.156" Grid.Column="2"/>
-        <Label Content="Hours Worked" HorizontalAlignment="Left" Margin="117.4,245,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.682,2.156" Grid.Column="2"/>
-        <Label Content="Hourly Rate" HorizontalAlignment="Left" Margin="117.4,304,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.682,2.156" Grid.Column="2"/>
-        <Label Content="EMPLOYEES" HorizontalAlignment="Left" Margin="56,85,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.297,-0.437" Grid.Column="1"/>
-        <ListBox HorizontalAlignment="Left" Height="260" Margin="37,116,0,0" VerticalAlignment="Top" Width="237" RenderTransformOrigin="0.146,0.474" Grid.ColumnSpan="2"/>
-        <RadioButton Content="FT" Grid.Column="2" HorizontalAlignment="Left" Margin="212.4,174,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.391,1.816"/>
-        <RadioButton Content="PT" Grid.Column="2" HorizontalAlignment="Left" Margin="286.4,174,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbxFullTime" Content="Full Time" HorizontalAlignment="Left" Margin="8,53,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <CheckBox x:Name="cbxPartTime" Content="Part Time" HorizontalAlignment="Left" Margin="138,53,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="tbxFirstName" HorizontalAlignment="Left" Height="23" Margin="212.4,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <TextBox x:Name="tbxSurname" HorizontalAlignment="Left" Height="23" Margin="212.4,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <TextBox x:Name="tbxSalary" HorizontalAlignment="Left" Height="23" Margin="212.4,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <TextBox x:Name="tbxHoursWorked" HorizontalAlignment="Left" Height="23" Margin="212.4,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <TextBox x:Name="tbxHourlyRate" HorizontalAlignment="Left" Height="23" Margin="212.4,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="392.4,103,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="392.4,148,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="392.4,212,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="392.4,256,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
+        <Label x:Name="lblFirstName" Content="First Name" HorizontalAlignment="Left" Margin="117.4,91,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+        <Label x:Name="lblSurname" Content="Surname" HorizontalAlignment="Left" Margin="117.4,137,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+        <Label x:Name="lblSalary" Content="Salary" HorizontalAlignment="Left" Margin="117.4,201,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.682,2.156" Grid.Column="2"/>
+        <Label x:Name="lblHoursWorked" Content="Hours Worked" HorizontalAlignment="Left" Margin="117.4,245,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.682,2.156" Grid.Column="2"/>
+        <Label x:Name="lblHourlyRate" Content="Hourly Rate" HorizontalAlignment="Left" Margin="117.4,304,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.682,2.156" Grid.Column="2"/>
+        <Label x:Name="lblEmployees" Content="EMPLOYEES" HorizontalAlignment="Left" Margin="56,85,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.297,-0.437" Grid.Column="1"/>
+        <ListBox x:Name="lbxEmployees" HorizontalAlignment="Left" Height="260" Margin="37,116,0,0" VerticalAlignment="Top" Width="237" RenderTransformOrigin="0.146,0.474" Grid.ColumnSpan="2"/>
+        <RadioButton x:Name="rbtnFullTime" Content="FT" Grid.Column="2" HorizontalAlignment="Left" Margin="212.4,174,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.391,1.816"/>
+        <RadioButton x:Name="rbtnPartTime" Content="PT" Grid.Column="2" HorizontalAlignment="Left" Margin="286.4,174,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
