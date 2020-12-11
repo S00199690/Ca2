@@ -22,6 +22,8 @@ namespace Customer
     public partial class MainWindow : Window
     {
         ObservableCollection<FullTimeEmployee> ftEmployees = new ObservableCollection<FullTimeEmployee>();
+
+        ObservableCollection<PartTimeEmployee> ptEmployees = new ObservableCollection<PartTimeEmployee>();
         public MainWindow()
         {
             InitializeComponent();
@@ -49,11 +51,20 @@ namespace Customer
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            FullTimeEmployee ft1 = new FullTimeEmployee("John", "Lennon");
+            FullTimeEmployee ft1 = new FullTimeEmployee("Steve", "Rogers");
+            FullTimeEmployee ft2 = new FullTimeEmployee("Peggy", "Carter");
+
+            PartTimeEmployee pt1 = new PartTimeEmployee("Tony", "Stark");
+            PartTimeEmployee pt2 = new PartTimeEmployee("Pepper", "Potts");
 
             ftEmployees.Add(ft1);
+            ftEmployees.Add(ft2);
+
+            ptEmployees.Add(pt1);
+            ptEmployees.Add(pt2);
 
             lbxEmployees.ItemsSource = ftEmployees;
+            lbxEmployees.ItemsSource = ptEmployees;
            
         }
     }

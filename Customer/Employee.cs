@@ -49,7 +49,18 @@ namespace Customer
             return HourlyRate * (decimal)HoursWorked;
         }
 
-        
+        public PartTimeEmployee(string firstname, string surname)
+        {
+            FirstName = firstname;
+            SurName = surname;
+        }
+
+        public override string ToString()
+        {
+            return string.Format($"{SurName.ToUpper()}, {FirstName}, - Part Time");
+        }
+
+
     }
 
     
