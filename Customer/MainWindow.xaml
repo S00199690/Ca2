@@ -14,8 +14,8 @@
         </Grid.ColumnDefinitions>
         <CheckBox x:Name="cbxFullTime" Content="Full Time" HorizontalAlignment="Left" Margin="8,53,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <CheckBox x:Name="cbxPartTime" Content="Part Time" HorizontalAlignment="Left" Margin="138,53,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox x:Name="tbxFirstName" HorizontalAlignment="Left" Height="23" Margin="212.4,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
-        <TextBox x:Name="tbxSurname" HorizontalAlignment="Left" Height="23" Margin="212.4,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <TextBox x:Name="tbxFirstName" HorizontalAlignment="Left" Height="23" Margin="212.4,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2" GotFocus="tbxFirstName_GotFocus"/>
+        <TextBox x:Name="tbxSurname" HorizontalAlignment="Left" Height="23" Margin="212.4,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2" GotFocus="tbxSurname_GotFocus"/>
         <TextBox x:Name="tbxSalary" HorizontalAlignment="Left" Height="23" Margin="212.4,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
         <TextBox x:Name="tbxHoursWorked" HorizontalAlignment="Left" Height="23" Margin="212.4,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
         <TextBox x:Name="tbxHourlyRate" HorizontalAlignment="Left" Height="23" Margin="212.4,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>

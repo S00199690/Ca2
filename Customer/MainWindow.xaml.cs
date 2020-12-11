@@ -32,7 +32,14 @@ namespace Customer
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             //read name from textbox
-            string newName = tbxFirstName.Text + tbxSurname.Text;
+            string firstName = tbxFirstName.Text;
+            string surname = tbxSurname.Text;
+
+            FullTimeEmployee employee = new FullTimeEmployee(firstName, surname);
+
+            ftEmployees.Add(employee);
+
+
 
             //add to list
             
@@ -45,7 +52,13 @@ namespace Customer
 
         private void lbxEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            FullTimeEmployee selectedEmployee = (FullTimeEmployee)lbxEmployees.SelectedItem;
 
+            if(selectedEmployee != null)
+            {
+                tbxFirstName.Text = selectedEmployee.FirstName;
+                tbxSurname.Text = selectedEmployee.SurName;
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -64,8 +77,18 @@ namespace Customer
             ptEmployees.Add(pt2);
 
             lbxEmployees.ItemsSource = ftEmployees;
-            lbxEmployees.ItemsSource = ptEmployees;
+            //lbxEmployees.ItemsSource = ptEmployees;
            
+        }
+
+        private void tbxFirstName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbxFirstName.Clear();
+        }
+
+        private void tbxSurname_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbxSurname.Clear();
         }
     }
 }
