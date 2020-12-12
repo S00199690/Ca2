@@ -52,32 +52,47 @@ namespace Customer
             
         }
 
-        private void lbxEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Employee selectedEmployee = (Employee)lbxEmployees.SelectedItem;
-
-            if (selectedEmployee != null)
+            private void lbxEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
             {
-                tbxFirstName.Text = selectedEmployee.FirstName;
-                tbxSurname.Text = selectedEmployee.SurName;
-            }
+               
+            
+                PartTimeEmployee selectedPartTimeEmployee = (PartTimeEmployee)lbxEmployees.SelectedItem;
+
+                if (selectedPartTimeEmployee != null)
+                {
+                    tbxFirstName.Text = selectedPartTimeEmployee.FirstName;
+                    tbxSurname.Text = selectedPartTimeEmployee.SurName;
+                    tbxHourlyRate.Text = selectedPartTimeEmployee.HourlyRate.ToString();
+                    tbxHoursWorked.Text = selectedPartTimeEmployee.HoursWorked.ToString();
+                }
+            
+                //FullTimeEmployee selectedFullTimeEmployee = (FullTimeEmployee)lbxEmployees.SelectedItem;
+                //if (selectedFullTimeEmployee != null)
+                //{
+                //    tbxFirstName.Text = selectedFullTimeEmployee.FirstName;
+                //    tbxSurname.Text = selectedFullTimeEmployee.SurName;
+                //    tbxSalary.Text = selectedFullTimeEmployee.Salary.ToString();
+                //}
+            
+
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            FullTimeEmployee ft1 = new FullTimeEmployee("Steve", "Rogers", "Full");
-            FullTimeEmployee ft2 = new FullTimeEmployee("Peggy", "Carter", "Full");
+            FullTimeEmployee ft1 = new FullTimeEmployee("Steve", "Rogers", "Full", 30000);
+            FullTimeEmployee ft2 = new FullTimeEmployee("Peggy", "Carter", "Full", 55000);
 
-            PartTimeEmployee pt1 = new PartTimeEmployee("Tony", "Stark", "Part");
-            PartTimeEmployee pt2 = new PartTimeEmployee("Pepper", "Potts", "Part");
+            PartTimeEmployee pt1 = new PartTimeEmployee("Tony", "Stark", "Part", 20, 50.5);
+            PartTimeEmployee pt2 = new PartTimeEmployee("Pepper", "Potts", "Part", 15, 42);
 
             employees.Add(ft1);
             employees.Add(ft2);
             employees.Add(pt1);
             employees.Add(pt2);
 
-            lbxEmployees.ItemsSource = employees;
+           // lbxEmployees.ItemsSource = employees;
            
         }
 
@@ -89,6 +104,43 @@ namespace Customer
         private void tbxSurname_GotFocus(object sender, RoutedEventArgs e)
         {
             tbxSurname.Clear();
+        }
+
+        private void cbxFullTime_Checked(object sender, RoutedEventArgs e)
+        {
+            string employeeType = "";
+            filteredEmployees.Clear();
+            lbxEmployees.ItemsSource = null;
+            
+
+            if(cbxFullTime.IsChecked == true && cbxPartTime.IsChecked == true)
+            {
+                lbxEmployees.ItemsSource = employees;
+            }
+            else
+            {
+                if(cbxFullTime.IsChecked == true && cbxPartTime.IsChecked != true)
+                {
+                    employeeType = "Full";
+                    
+                }
+                else if(cbxPartTime.IsChecked == true && cbxFullTime.IsChecked != true)
+                {
+                    employeeType = "Part";
+                    
+                }
+
+                foreach(Employee employee in employees)
+                {
+                    if (employee.Type == employeeType)
+                    {
+                        filteredEmployees.Add(employee);
+                    }
+                   
+                }
+       
+                lbxEmployees.ItemsSource = filteredEmployees;
+            }
         }
     }
 }

@@ -28,11 +28,12 @@ namespace Customer
             return Salary / 12;
         }
 
-        public FullTimeEmployee(string firstname, string surname, string type)
+        public FullTimeEmployee(string firstname, string surname, string type, decimal salary)
         {
             FirstName = firstname;
             SurName = surname;
             Type = type;
+            Salary = salary;
         }
 
         public override string ToString()
@@ -53,11 +54,13 @@ namespace Customer
             return HourlyRate * (decimal)HoursWorked;
         }
 
-        public PartTimeEmployee(string firstname, string surname, string type)
+        public PartTimeEmployee(string firstname, string surname, string type, decimal hourlyrate, double hoursworked)
         {
             FirstName = firstname;
             SurName = surname;
             Type = type;
+            HourlyRate = hourlyrate;
+            HoursWorked = hoursworked;
         }
 
         public override string ToString()
