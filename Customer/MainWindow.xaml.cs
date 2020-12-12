@@ -21,9 +21,10 @@ namespace Customer
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<FullTimeEmployee> ftEmployees = new ObservableCollection<FullTimeEmployee>();
+        ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
+        ObservableCollection<Employee> filteredEmployees = new ObservableCollection<Employee>();
 
-        ObservableCollection<PartTimeEmployee> ptEmployees = new ObservableCollection<PartTimeEmployee>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -34,10 +35,11 @@ namespace Customer
             //read name from textbox
             string firstName = tbxFirstName.Text;
             string surname = tbxSurname.Text;
+            //string type = 
 
-            FullTimeEmployee employee = new FullTimeEmployee(firstName, surname);
+          //  FullTimeEmployee employee = new FullTimeEmployee(firstName, surname, type);
 
-            ftEmployees.Add(employee);
+           // Employees.Add(employee);
 
 
 
@@ -52,9 +54,9 @@ namespace Customer
 
         private void lbxEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            FullTimeEmployee selectedEmployee = (FullTimeEmployee)lbxEmployees.SelectedItem;
+            Employee selectedEmployee = (Employee)lbxEmployees.SelectedItem;
 
-            if(selectedEmployee != null)
+            if (selectedEmployee != null)
             {
                 tbxFirstName.Text = selectedEmployee.FirstName;
                 tbxSurname.Text = selectedEmployee.SurName;
@@ -64,20 +66,18 @@ namespace Customer
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            FullTimeEmployee ft1 = new FullTimeEmployee("Steve", "Rogers");
-            FullTimeEmployee ft2 = new FullTimeEmployee("Peggy", "Carter");
+            FullTimeEmployee ft1 = new FullTimeEmployee("Steve", "Rogers", "Full");
+            FullTimeEmployee ft2 = new FullTimeEmployee("Peggy", "Carter", "Full");
 
-            PartTimeEmployee pt1 = new PartTimeEmployee("Tony", "Stark");
-            PartTimeEmployee pt2 = new PartTimeEmployee("Pepper", "Potts");
+            PartTimeEmployee pt1 = new PartTimeEmployee("Tony", "Stark", "Part");
+            PartTimeEmployee pt2 = new PartTimeEmployee("Pepper", "Potts", "Part");
 
-            ftEmployees.Add(ft1);
-            ftEmployees.Add(ft2);
+            employees.Add(ft1);
+            employees.Add(ft2);
+            employees.Add(pt1);
+            employees.Add(pt2);
 
-            ptEmployees.Add(pt1);
-            ptEmployees.Add(pt2);
-
-            lbxEmployees.ItemsSource = ftEmployees;
-            //lbxEmployees.ItemsSource = ptEmployees;
+            lbxEmployees.ItemsSource = employees;
            
         }
 

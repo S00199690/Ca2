@@ -12,7 +12,10 @@ namespace Customer
 
         public string SurName { get; set; }
 
+        public string Type { get; set; }
+
         public abstract decimal CalculateMonthlyPay();
+
 
     }
 
@@ -25,15 +28,16 @@ namespace Customer
             return Salary / 12;
         }
 
-        public FullTimeEmployee(string firstname, string surname)
+        public FullTimeEmployee(string firstname, string surname, string type)
         {
             FirstName = firstname;
             SurName = surname;
+            Type = type;
         }
 
         public override string ToString()
         {
-            return string.Format($"{SurName.ToUpper()}, {FirstName}, - Full Time");
+            return string.Format($"{SurName.ToUpper()}, {FirstName} - {Type} Time");
         }
 
     }
@@ -49,17 +53,17 @@ namespace Customer
             return HourlyRate * (decimal)HoursWorked;
         }
 
-        public PartTimeEmployee(string firstname, string surname)
+        public PartTimeEmployee(string firstname, string surname, string type)
         {
             FirstName = firstname;
             SurName = surname;
+            Type = type;
         }
 
         public override string ToString()
         {
-            return string.Format($"{SurName.ToUpper()}, {FirstName}, - Part Time");
+            return string.Format($"{SurName.ToUpper()}, {FirstName} - {Type} Time");
         }
-
 
     }
 
