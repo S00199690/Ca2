@@ -19,6 +19,7 @@ namespace Customer
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+   #region code
     public partial class MainWindow : Window
     {
         List<Employee> employees = new List<Employee>();
@@ -30,11 +31,11 @@ namespace Customer
             InitializeComponent();
             cbxFullTime.IsChecked = true;
             cbxPartTime.IsChecked = true;
-            FullTimeEmployee ft1 = new FullTimeEmployee("Steve", "Rogers", 30000);
-            FullTimeEmployee ft2 = new FullTimeEmployee("Peggy", "Carter", 55000);
+            FullTimeEmployee ft1 = new FullTimeEmployee("Steve", "Rogers", "Full", 30000);
+            FullTimeEmployee ft2 = new FullTimeEmployee("Peggy", "Carter", "Full", 55000);
 
-            PartTimeEmployee pt1 = new PartTimeEmployee("Tony", "Stark", 20, 50.5);
-            PartTimeEmployee pt2 = new PartTimeEmployee("Pepper", "Potts", 15, 42);
+            PartTimeEmployee pt1 = new PartTimeEmployee("Tony", "Stark", "Part", 20, 50.5);
+            PartTimeEmployee pt2 = new PartTimeEmployee("Pepper", "Potts", "Part", 15, 42);
 
             employees.Add(ft1);
             employees.Add(ft2);
@@ -48,24 +49,23 @@ namespace Customer
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            //read name from textbox
-            
+        {   
 
             if (rbtnPartTime.IsChecked == true)
             {
-               PartTimeEmployee employee = new PartTimeEmployee(tbxFirstName.Text, tbxSurname.Text, decimal.Parse(tbxHoursWorked.Text), double.Parse(tbxHourlyRate.Text));
+               PartTimeEmployee employee = new PartTimeEmployee(tbxFirstName.Text, tbxSurname.Text, "Part", decimal.Parse(tbxHoursWorked.Text), double.Parse(tbxHourlyRate.Text));
                 employees.Add(employee);
             }
             else if(rbtnFullTime.IsChecked == true)
             {
-                FullTimeEmployee employee = new FullTimeEmployee(tbxFirstName.Text, tbxSurname.Text, decimal.Parse(tbxSalary.Text));
+                FullTimeEmployee employee = new FullTimeEmployee(tbxFirstName.Text, tbxSurname.Text, "Full", decimal.Parse(tbxSalary.Text));
                 employees.Add(employee);
             }
 
 
             //refresh display
             employees.Sort();
+            btnClear_Click(null, null);
             lbxEmployees.ItemsSource = null;
             lbxEmployees.ItemsSource = employees;
 
@@ -79,22 +79,24 @@ namespace Customer
 
                 if (selectedEmployee is PartTimeEmployee)
                 {
+                    PartTimeEmployee employee = (PartTimeEmployee)selectedEmployee;
                     tbxSalary.Clear();
-                    tbxFirstName.Text = selectedEmployee.FirstName;
-                    tbxSurname.Text = selectedEmployee.SurName;
-                    tbxHourlyRate.Text = selectedEmployee.HourlyRate.ToString();
-                    tbxHoursWorked.Text = selectedEmployee.HoursWorked.ToString();
-                    tbkMonthlyPay.Text = selectedEmployee.CalculateMonthlyPay().ToString();
+                    tbxFirstName.Text = employee.FirstName;
+                    tbxSurname.Text = employee.SurName;
+                    tbxHourlyRate.Text = employee.HourlyRate.ToString();
+                    tbxHoursWorked.Text = employee.HoursWorked.ToString();
+                    tbkMonthlyPay.Text = employee.CalculateMonthlyPay().ToString();
                     rbtnPartTime.IsChecked = true;
                 }
                 else if(selectedEmployee is FullTimeEmployee)
                 {
+                FullTimeEmployee employee = (FullTimeEmployee)selectedEmployee;
                 tbxHoursWorked.Clear();
                 tbxHourlyRate.Clear();
-                tbxFirstName.Text = selectedEmployee.FirstName;
-                tbxSurname.Text = selectedEmployee.SurName;
-                tbxSalary.Text = selectedEmployee.Salary.ToString();
-                tbkMonthlyPay.Text = selectedEmployee.CalculateMonthlyPay().ToString();
+                tbxFirstName.Text = employee.FirstName;
+                tbxSurname.Text = employee.SurName;
+                tbxSalary.Text = employee.Salary.ToString();
+                tbkMonthlyPay.Text = employee.CalculateMonthlyPay().ToString();
                 rbtnFullTime.IsChecked = true;
                 }
 
@@ -123,7 +125,22 @@ namespace Customer
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
+            employees.Remove((Employee)lbxEmployees.SelectedItem);
 
+            if (rbtnFullTime.IsChecked == true)
+            {
+                FullTimeEmployee fullTime = new FullTimeEmployee(tbxFirstName.Text, tbxSurname.Text, "Full", decimal.Parse(tbxSalary.Text));
+                employees.Add(fullTime);
+            }
+            else
+            {
+                PartTimeEmployee partTime = new PartTimeEmployee(tbxFirstName.Text, tbxSurname.Text, "Part", decimal.Parse(tbxHourlyRate.Text), double.Parse(tbxHoursWorked.Text));
+                employees.Add(partTime);
+            }
+            employees.Sort();
+            btnClear_Click(null, null);
+            lbxEmployees.ItemsSource = null;
+            lbxEmployees.ItemsSource = employees;
         }
 
         private void cbxFullTime_Click(object sender, RoutedEventArgs e)
@@ -179,3 +196,4 @@ namespace Customer
         
     }
 }
+#endregion code

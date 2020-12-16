@@ -12,10 +12,16 @@ namespace Customer
 
         public string SurName { get; set; }
 
-        public decimal Salary { get; set; }
-        public decimal HourlyRate { get; set; }
+        public string Type { get; set; }
 
-        public double HoursWorked { get; set; }
+        
+        public Employee(string firstname, string surname, string type)
+        {
+            FirstName = firstname;
+            SurName = surname;
+            Type = type;
+        }
+        
 
         public abstract decimal CalculateMonthlyPay();
 
@@ -42,45 +48,42 @@ namespace Customer
 
     class FullTimeEmployee : Employee
     {
-
+        public decimal Salary { get; set; }
         public override decimal CalculateMonthlyPay()
         {
             return Salary / 12;
         }
 
-        public FullTimeEmployee(string firstname, string surname, decimal salary)
+        public FullTimeEmployee(string firstname, string surname, string type, decimal salary): base(firstname, surname, type)
         {
-            FirstName = firstname;
-            SurName = surname;
-            Salary = salary;
+            Salary = salary;   
         }
 
         public override string ToString()
         {
-            return string.Format($"{SurName.ToUpper()}, {FirstName} - Full Time");
+            return string.Format($"{SurName.ToUpper()}, {FirstName} - {Type} Time");
         }
 
     }
 
     class PartTimeEmployee: Employee
     {
-
+        public decimal HourlyRate { get; set; }
+        public double HoursWorked { get; set; }
         public override decimal CalculateMonthlyPay()
         {
             return HourlyRate * (decimal)HoursWorked;
         }
 
-        public PartTimeEmployee(string firstname, string surname, decimal hourlyrate, double hoursworked)
+        public PartTimeEmployee(string firstname, string surname, string type, decimal hourlyrate, double hoursworked): base (firstname, surname, type)
         {
-            FirstName = firstname;
-            SurName = surname;
             HourlyRate = hourlyrate;
             HoursWorked = hoursworked;
         }
 
         public override string ToString()
         {
-            return string.Format($"{SurName.ToUpper()}, {FirstName} - Part Time");
+            return string.Format($"{SurName.ToUpper()}, {FirstName} - {Type} Time");
         }
 
     }
