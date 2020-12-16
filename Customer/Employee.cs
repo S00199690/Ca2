@@ -12,8 +12,6 @@ namespace Customer
 
         public string SurName { get; set; }
 
-        public string Type { get; set; }
-
         public decimal Salary { get; set; }
         public decimal HourlyRate { get; set; }
 
@@ -50,17 +48,16 @@ namespace Customer
             return Salary / 12;
         }
 
-        public FullTimeEmployee(string firstname, string surname, string type, decimal salary)
+        public FullTimeEmployee(string firstname, string surname, decimal salary)
         {
             FirstName = firstname;
             SurName = surname;
-            Type = type;
             Salary = salary;
         }
 
         public override string ToString()
         {
-            return string.Format($"{SurName.ToUpper()}, {FirstName} - {Type} Time");
+            return string.Format($"{SurName.ToUpper()}, {FirstName} - Full Time");
         }
 
     }
@@ -73,18 +70,17 @@ namespace Customer
             return HourlyRate * (decimal)HoursWorked;
         }
 
-        public PartTimeEmployee(string firstname, string surname, string type, decimal hourlyrate, double hoursworked)
+        public PartTimeEmployee(string firstname, string surname, decimal hourlyrate, double hoursworked)
         {
             FirstName = firstname;
             SurName = surname;
-            Type = type;
             HourlyRate = hourlyrate;
             HoursWorked = hoursworked;
         }
 
         public override string ToString()
         {
-            return string.Format($"{SurName.ToUpper()}, {FirstName} - {Type} Time");
+            return string.Format($"{SurName.ToUpper()}, {FirstName} - Part Time");
         }
 
     }

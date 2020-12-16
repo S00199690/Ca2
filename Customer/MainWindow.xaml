@@ -5,24 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Customer"
         mc:Ignorable="d"
-        Title="EmployeeApp" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="EmployeeApp" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="34*"/>
             <ColumnDefinition Width="111*"/>
-            <ColumnDefinition Width="252*"/>
+            <ColumnDefinition Width="174*"/>
+            <ColumnDefinition Width="78*"/>
         </Grid.ColumnDefinitions>
-        <CheckBox x:Name="cbxFullTime" Content="Full Time" HorizontalAlignment="Left" Margin="8,53,0,0" VerticalAlignment="Top" Grid.Column="1" Checked="cbxFullTime_Checked" Unchecked="cbxFullTime_Unchecked"/>
-        <CheckBox x:Name="cbxPartTime" Content="Part Time" HorizontalAlignment="Left" Margin="138,53,0,0" VerticalAlignment="Top" Grid.Column="1" Checked="cbxFullTime_Checked" Unchecked="cbxFullTime_Unchecked"/>
-        <TextBox x:Name="tbxFirstName" HorizontalAlignment="Left" Height="23" Margin="212.4,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2" GotFocus="tbxFirstName_GotFocus"/>
-        <TextBox x:Name="tbxSurname" HorizontalAlignment="Left" Height="23" Margin="212.4,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2" GotFocus="tbxSurname_GotFocus"/>
+        <CheckBox x:Name="cbxFullTime" Content="Full Time" HorizontalAlignment="Left" Margin="8,53,0,0" VerticalAlignment="Top" Grid.Column="1" Click="cbxFullTime_Click"/>
+        <CheckBox x:Name="cbxPartTime" Content="Part Time" HorizontalAlignment="Left" Margin="138,53,0,0" VerticalAlignment="Top" Grid.Column="1" Click="cbxFullTime_Click"/>
+        <TextBox x:Name="tbxFirstName" HorizontalAlignment="Left" Height="23" Margin="212.4,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <TextBox x:Name="tbxSurname" HorizontalAlignment="Left" Height="23" Margin="212.4,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
         <TextBox x:Name="tbxSalary" HorizontalAlignment="Left" Height="23" Margin="212.4,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
         <TextBox x:Name="tbxHoursWorked" HorizontalAlignment="Left" Height="23" Margin="212.4,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
         <TextBox x:Name="tbxHourlyRate" HorizontalAlignment="Left" Height="23" Margin="212.4,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
-        <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="392.4,103,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
-        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="392.4,148,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Click="btnAdd_Click"/>
-        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="392.4,212,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
-        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="392.4,256,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
+        <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="43.977,103,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Click="btnClear_Click"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="43.977,148,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Click="btnAdd_Click"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="43.977,212,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Click="btnUpdate_Click"/>
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="43.977,256,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Click="btnDelete_Click"/>
         <Label x:Name="lblFirstName" Content="First Name" HorizontalAlignment="Left" Margin="117.4,91,0,0" VerticalAlignment="Top" Grid.Column="2"/>
         <Label x:Name="lblSurname" Content="Surname" HorizontalAlignment="Left" Margin="117.4,137,0,0" VerticalAlignment="Top" Grid.Column="2"/>
         <Label x:Name="lblSalary" Content="Salary" HorizontalAlignment="Left" Margin="117.4,201,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.682,2.156" Grid.Column="2"/>
