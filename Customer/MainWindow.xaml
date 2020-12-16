@@ -31,8 +31,8 @@
         <Label x:Name="lblHourlyRate" Content="Hourly Rate" HorizontalAlignment="Left" Margin="117.4,304,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.682,2.156" Grid.Column="2"/>
         <Label x:Name="lblEmployees" Content="EMPLOYEES" HorizontalAlignment="Left" Margin="56,85,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.297,-0.437" Grid.Column="1"/>
         <ListBox x:Name="lbxEmployees" HorizontalAlignment="Left" Height="260" Margin="37,116,0,0" VerticalAlignment="Top" Width="296" RenderTransformOrigin="0.146,0.474" Grid.ColumnSpan="3" SelectionChanged="lbxEmployees_SelectionChanged"/>
-        <RadioButton x:Name="rbtnFullTime" Content="FT" Grid.Column="2" HorizontalAlignment="Left" Margin="212.4,174,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.391,1.816" GroupName="EmployeeType"/>
-        <RadioButton x:Name="rbtnPartTime" Content="PT" Grid.Column="2" HorizontalAlignment="Left" Margin="286.4,174,0,0" VerticalAlignment="Top" GroupName="EmployeeType"/>
+        <RadioButton x:Name="rbtnFullTime" Content="FT" Grid.Column="2" HorizontalAlignment="Left" Margin="212.4,174,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.391,1.816" GroupName="EmployeeType" Checked="rbtnFullTime_Checked"/>
+        <RadioButton x:Name="rbtnPartTime" Content="PT" Grid.Column="2" HorizontalAlignment="Left" Margin="286.4,174,0,0" VerticalAlignment="Top" GroupName="EmployeeType" Checked="rbtnPartTime_Checked"/>
         <Label x:Name="lblMontlyPay" Content="Monthly Pay" Grid.Column="2" HorizontalAlignment="Left" Margin="117.4,358,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="tbkMonthlyPay" Grid.Column="2" HorizontalAlignment="Left" Margin="212.4,363,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 

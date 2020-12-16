@@ -22,6 +22,7 @@ namespace Customer
    #region code
     public partial class MainWindow : Window
     {
+        SolidColorBrush greyedOut = new SolidColorBrush(Color.FromRgb(0xa5, 0xa5, 0xa5));
         List<Employee> employees = new List<Employee>();
         ObservableCollection<Employee> filteredEmployees = new ObservableCollection<Employee>();
 
@@ -193,7 +194,41 @@ namespace Customer
             }
         }
 
-        
+        private void rbtnFullTime_Checked(object sender, RoutedEventArgs e)
+        {
+            lblSalary.Foreground = Brushes.Black;
+            tbxSalary.Background = Brushes.White;
+            tbxSalary.IsEnabled = true;
+            tbxSalary.Cursor = Cursors.IBeam;
+
+            lblHourlyRate.Foreground = Brushes.Gray;
+            tbxHourlyRate.Background = Brushes.Gray;
+            tbxHourlyRate.IsEnabled = false;
+            tbxHourlyRate.Cursor = Cursors.Arrow;
+
+            lblHoursWorked.Foreground = Brushes.Gray;
+            tbxHoursWorked.Background = Brushes.Gray;
+            tbxHoursWorked.IsEnabled = false;
+            tbxHoursWorked.Cursor = Cursors.Arrow;
+        }
+
+        private void rbtnPartTime_Checked(object sender, RoutedEventArgs e)
+        {
+            lblHourlyRate.Foreground = Brushes.Black;
+            tbxHourlyRate.Background = Brushes.White;
+            tbxHourlyRate.IsEnabled = true;
+            tbxHourlyRate.Cursor = Cursors.IBeam;
+
+            lblHoursWorked.Foreground = Brushes.Black;
+            tbxHoursWorked.Background = Brushes.White;
+            tbxHoursWorked.IsEnabled = true;
+            tbxHoursWorked.Cursor = Cursors.IBeam;
+
+            lblSalary.Foreground = Brushes.Gray;
+            tbxSalary.Background = Brushes.Gray;
+            tbxSalary.IsEnabled = false;
+            tbxSalary.Cursor = Cursors.Arrow;
+        }
     }
 }
 #endregion code
