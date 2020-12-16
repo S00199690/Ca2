@@ -21,8 +21,8 @@ namespace Customer
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
-        ObservableCollection<Employee> filteredEmployees = new ObservableCollection<Employee>();
+        List<Employee> employees = new List<Employee>();
+        List<Employee> filteredEmployees = new List<Employee>();
 
 
         public MainWindow()
@@ -55,26 +55,26 @@ namespace Customer
             private void lbxEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
             {
 
-            //tbxFirstName.Clear();
-            //tbxSurname.Clear();
-            //tbxHourlyRate.Clear();
-            //tbxHoursWorked.Clear();
-            //tbxSalary.Clear();
                 Employee selectedEmployee = (Employee)lbxEmployees.SelectedItem;
 
                 if (selectedEmployee is PartTimeEmployee)
                 {
+                    tbxSalary.Clear();
                     tbxFirstName.Text = selectedEmployee.FirstName;
                     tbxSurname.Text = selectedEmployee.SurName;
                     tbxHourlyRate.Text = selectedEmployee.HourlyRate.ToString();
                     tbxHoursWorked.Text = selectedEmployee.HoursWorked.ToString();
+                    tbkMonthlyPay.Text = selectedEmployee.CalculateMonthlyPay().ToString();
                     rbtnPartTime.IsChecked = true;
                 }
                 else if(selectedEmployee is FullTimeEmployee)
                 {
+                tbxHoursWorked.Clear();
+                tbxHourlyRate.Clear();
                 tbxFirstName.Text = selectedEmployee.FirstName;
                 tbxSurname.Text = selectedEmployee.SurName;
                 tbxSalary.Text = selectedEmployee.Salary.ToString();
+                tbkMonthlyPay.Text = selectedEmployee.CalculateMonthlyPay().ToString();
                 rbtnFullTime.IsChecked = true;
                 }
 
@@ -93,6 +93,8 @@ namespace Customer
             employees.Add(ft2);
             employees.Add(pt1);
             employees.Add(pt2);
+
+            employees.Sort();
 
            // lbxEmployees.ItemsSource = employees;
            

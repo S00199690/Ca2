@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Customer
 {
-    abstract class Employee
+    abstract class Employee: IComparable
     {
         public string FirstName { get; set; }
 
@@ -21,7 +21,25 @@ namespace Customer
 
         public abstract decimal CalculateMonthlyPay();
 
+        public int CompareTo(object obj)
+        {
+            int returnValue;
+            //Get a reference to the next object in the collection
+            Employee that = (Employee)obj;
 
+
+
+            //Indicate what field I want to compare
+            if (this.SurName == that.SurName)
+                returnValue = this.FirstName.CompareTo(that.FirstName);
+            else
+                returnValue = this.SurName.CompareTo(that.SurName);
+
+
+
+            //return
+            return returnValue;
+        }
     }
 
     class FullTimeEmployee : Employee

@@ -33,7 +33,7 @@
         <RadioButton x:Name="rbtnFullTime" Content="FT" Grid.Column="2" HorizontalAlignment="Left" Margin="212.4,174,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.391,1.816" GroupName="EmployeeType"/>
         <RadioButton x:Name="rbtnPartTime" Content="PT" Grid.Column="2" HorizontalAlignment="Left" Margin="286.4,174,0,0" VerticalAlignment="Top" GroupName="EmployeeType"/>
         <Label x:Name="lblMontlyPay" Content="Monthly Pay" Grid.Column="2" HorizontalAlignment="Left" Margin="117.4,358,0,0" VerticalAlignment="Top"/>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="212.4,363,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="gddfg"/>
+        <TextBlock x:Name="tbkMonthlyPay" Grid.Column="2" HorizontalAlignment="Left" Margin="212.4,363,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
