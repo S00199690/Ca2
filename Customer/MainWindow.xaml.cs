@@ -54,27 +54,29 @@ namespace Customer
 
             private void lbxEmployees_SelectionChanged(object sender, SelectionChangedEventArgs e)
             {
-               
-            
-                PartTimeEmployee selectedPartTimeEmployee = (PartTimeEmployee)lbxEmployees.SelectedItem;
 
-                if (selectedPartTimeEmployee != null)
+            //tbxFirstName.Clear();
+            //tbxSurname.Clear();
+            //tbxHourlyRate.Clear();
+            //tbxHoursWorked.Clear();
+            //tbxSalary.Clear();
+                Employee selectedEmployee = (Employee)lbxEmployees.SelectedItem;
+
+                if (selectedEmployee is PartTimeEmployee)
                 {
-                    tbxFirstName.Text = selectedPartTimeEmployee.FirstName;
-                    tbxSurname.Text = selectedPartTimeEmployee.SurName;
-                    tbxHourlyRate.Text = selectedPartTimeEmployee.HourlyRate.ToString();
-                    tbxHoursWorked.Text = selectedPartTimeEmployee.HoursWorked.ToString();
+                    tbxFirstName.Text = selectedEmployee.FirstName;
+                    tbxSurname.Text = selectedEmployee.SurName;
+                    tbxHourlyRate.Text = selectedEmployee.HourlyRate.ToString();
+                    tbxHoursWorked.Text = selectedEmployee.HoursWorked.ToString();
+                    rbtnPartTime.IsChecked = true;
                 }
-            
-                //FullTimeEmployee selectedFullTimeEmployee = (FullTimeEmployee)lbxEmployees.SelectedItem;
-                //if (selectedFullTimeEmployee != null)
-                //{
-                //    tbxFirstName.Text = selectedFullTimeEmployee.FirstName;
-                //    tbxSurname.Text = selectedFullTimeEmployee.SurName;
-                //    tbxSalary.Text = selectedFullTimeEmployee.Salary.ToString();
-                //}
-            
-
+                else if(selectedEmployee is FullTimeEmployee)
+                {
+                tbxFirstName.Text = selectedEmployee.FirstName;
+                tbxSurname.Text = selectedEmployee.SurName;
+                tbxSalary.Text = selectedEmployee.Salary.ToString();
+                rbtnFullTime.IsChecked = true;
+                }
 
         }
 
@@ -108,38 +110,80 @@ namespace Customer
 
         private void cbxFullTime_Checked(object sender, RoutedEventArgs e)
         {
-            string employeeType = "";
             filteredEmployees.Clear();
             lbxEmployees.ItemsSource = null;
-            
 
-            if(cbxFullTime.IsChecked == true && cbxPartTime.IsChecked == true)
+
+            if (cbxFullTime.IsChecked == true && cbxPartTime.IsChecked == true)
             {
-                lbxEmployees.ItemsSource = employees;
+                foreach (Employee employee in employees)
+                {
+                    filteredEmployees.Add(employee);
+                }
+                lbxEmployees.ItemsSource = filteredEmployees;
             }
             else
             {
-                if(cbxFullTime.IsChecked == true && cbxPartTime.IsChecked != true)
+                if (cbxFullTime.IsChecked == true)
                 {
-                    employeeType = "Full";
-                    
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is FullTimeEmployee)
+                        {
+                            filteredEmployees.Add(employee);
+                        }
+          
+                    }
+                    lbxEmployees.ItemsSource = filteredEmployees;
                 }
-                else if(cbxPartTime.IsChecked == true && cbxFullTime.IsChecked != true)
+                else if (cbxPartTime.IsChecked == true)
                 {
-                    employeeType = "Part";
-                    
+                    foreach (Employee employee in employees)
+                    {
+                        if (employee is PartTimeEmployee)
+                        {
+                            filteredEmployees.Add(employee);
+                        }
+                       
+                    }
+                    lbxEmployees.ItemsSource = filteredEmployees;
+
+                }
+                else if (cbxPartTime.IsChecked == false && cbxFullTime.IsChecked == false)
+                {
+                    filteredEmployees.Clear();
+                    lbxEmployees.ItemsSource = filteredEmployees;
                 }
 
-                foreach(Employee employee in employees)
-                {
-                    if (employee.Type == employeeType)
-                    {
-                        filteredEmployees.Add(employee);
-                    }
-                   
-                }
-       
+            }
+        }
+
+        private void cbxFullTime_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (cbxPartTime.IsChecked == false && cbxFullTime.IsChecked == false)
+            {
+                filteredEmployees.Clear();
                 lbxEmployees.ItemsSource = filteredEmployees;
+            }
+            else if (cbxFullTime.IsChecked == false)
+            {
+                foreach (Employee employee in employees)
+                {
+                    if (employee is FullTimeEmployee)
+                    {
+                        filteredEmployees.Remove(employee);
+                    }
+                }
+            }
+            else if(cbxPartTime.IsChecked == false)
+            {
+                foreach (Employee employee in employees)
+                {
+                    if (employee is PartTimeEmployee)
+                    {
+                        filteredEmployees.Remove(employee);
+                    }
+                }
             }
         }
     }

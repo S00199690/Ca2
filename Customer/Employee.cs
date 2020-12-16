@@ -14,6 +14,11 @@ namespace Customer
 
         public string Type { get; set; }
 
+        public decimal Salary { get; set; }
+        public decimal HourlyRate { get; set; }
+
+        public double HoursWorked { get; set; }
+
         public abstract decimal CalculateMonthlyPay();
 
 
@@ -21,7 +26,6 @@ namespace Customer
 
     class FullTimeEmployee : Employee
     {
-        public decimal Salary { get; set; }
 
         public override decimal CalculateMonthlyPay()
         {
@@ -45,9 +49,6 @@ namespace Customer
 
     class PartTimeEmployee: Employee
     {
-        public decimal HourlyRate { get; set; }
-
-        public double HoursWorked { get; set; }
 
         public override decimal CalculateMonthlyPay()
         {
