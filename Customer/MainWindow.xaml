@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Customer"
         mc:Ignorable="d"
         Title="EmployeeApp" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="frmEmployee">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="34*"/>
             <ColumnDefinition Width="111*"/>
@@ -35,6 +35,7 @@
         <RadioButton x:Name="rbtnPartTime" Content="PT" Grid.Column="2" HorizontalAlignment="Left" Margin="286.4,174,0,0" VerticalAlignment="Top" GroupName="EmployeeType" Checked="rbtnPartTime_Checked"/>
         <Label x:Name="lblMontlyPay" Content="Monthly Pay" Grid.Column="2" HorizontalAlignment="Left" Margin="117.4,358,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="tbkMonthlyPay" Grid.Column="2" HorizontalAlignment="Left" Margin="212.4,363,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label x:Name="lblEuro" Content="€" Grid.Column="2" HorizontalAlignment="Left" Margin="196.4,358,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.631,0.559"/>
 
     </Grid>
 </Window>
